@@ -1,4 +1,12 @@
 .App {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   padding: 0 0 5em 0;
   text-align: center;
+}
+
+body {
+  background-color: #260F26;
+  color: lightgray;
 }
