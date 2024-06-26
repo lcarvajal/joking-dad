@@ -1,12 +1,14 @@
 .App {
   align-items: center;
+  background-color: #260F26;
+  color: lightgray;
   display: flex;
   flex-direction: column;
-  padding: 0 0 5em 0;
+  height: 100vh;
   text-align: center;
 }
 
-body {
+.App-header {
   background-color: #260F26;
-  color: lightgray;
+  width: 100vw;
 }
