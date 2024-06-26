@@ -4,4 +4,4 @@ A React app that tells dad jokes.
 
 ## Try it out
 
-[Open the live deployment](https://joking-dad.vercel.app).
+<a href="https://joking-dad.vercel.app" target="_blank">Open the live deployment.</a>
