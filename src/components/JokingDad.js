@@ -43,15 +43,13 @@ export default function JokingDad() {
 
   return (
     <div className="JokingDad">
-      <div>
+      <div className='JokingDad-highlighted-row'>
         <img src="./jerry-stiller.jpg" />
-      </div>
-      <div>
         <p>{jokes[index]}</p>
       </div>
-      <div>
-        {jokes.length > 0 && index > 0 ? <button onClick={displayPreviousJoke}>Previous Joke</button> : null}
-        <button onClick={displayNextJoke}>Next Joke</button>
+      <div className='JokingDad-row'>
+        {jokes.length > 0 && index > 0 ? <button onClick={displayPreviousJoke}>Previous</button> : null}
+        <button onClick={displayNextJoke}>Next</button>
       </div>
     </div>
   );
