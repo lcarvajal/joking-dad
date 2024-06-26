@@ -7,9 +7,23 @@ export default function JokingDad() {
   const [jokes, setJokes] = useState([]);
 
   useEffect(() => {
-    // displayNextJoke();
+    displayNextJoke();
+  }, [])
+
+  function getNewJoke(onCompletion) {
+    const request = new XMLHttpRequest();
+    request.open('GET', 'https://icanhazdadjoke.com/');
+    request.setRequestHeader('Accept', 'application/json');
+    request.onload = () => {
+      console.log(request.response)
+      if (request.status === 200) {
+        const response = JSON.parse(request.response)
+        const newJoke = response.joke;
+        onCompletion(newJoke);
+      }
+    };
+    request.send();
   }
-  )
 
   function displayPreviousJoke() {
     if (index > 0) {
@@ -22,22 +36,13 @@ export default function JokingDad() {
       setIndex(index + 1);
     }
     else {
-      const request = new XMLHttpRequest();
-      request.open('GET', 'https://icanhazdadjoke.com/');
-      request.setRequestHeader('Accept', 'application/json');
-      request.onload = () => {
-        console.log(request.response)
-        if (request.status === 200) {
-          const response = JSON.parse(request.response)
-          const newJoke = response.joke;
-          setJokes([
-            ...jokes,
-            newJoke
-          ]);
-          setIndex(jokes.length);
-        }
-      };
-      request.send();
+      getNewJoke((newJoke) => {
+        setJokes([
+          ...jokes,
+          newJoke
+        ]);
+        setIndex(jokes.length);
+      });
     }
   }
 
